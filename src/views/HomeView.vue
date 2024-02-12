@@ -69,14 +69,14 @@ const form = ref({
 
 const showButton = () => {
   if (
-    form.where.length > 0 ||
-    form.whereto.length > 0 ||
-    form.passengerscount.length > 0 ||
+    form.where.length > 0 &&
+    form.whereto.length > 0 &&
+    form.passengerscount.length > 0 &&
     form.delivery.length > 0
   ) {
-    tg.MainButton.hide();
-  } else {
     tg.MainButton.show();
+  } else {
+    tg.MainButton.hide();
   }
 };
 const onSendData = () => {
