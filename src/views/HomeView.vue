@@ -64,8 +64,16 @@ const showButton = () => {
     tg.MainButton.hide();
   }
 };
+const onSendData = () => {
+  try {
+    tg.sendData(JSON.stringify(form.value));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 watchEffect(() => {
+  showButton();
   tg.onEvent("mainButtonClicked", onSendData);
 });
 </script>
