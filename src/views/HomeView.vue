@@ -68,17 +68,14 @@ const form = ref({
 });
 
 const showButton = () => {
-  if (
-    form.where !== "" &&
-    form.whereto !== "" &&
-    form.passengerscount !== "" &&
-    form.delivery !== ""
-  ) {
+  const { where, whereto, passengerscount, delivery } = form.value;
+  if (where && whereto && passengerscount && delivery) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
   }
 };
+
 const onSendData = () => {
   try {
     tg.sendData(JSON.stringify(form.value));
