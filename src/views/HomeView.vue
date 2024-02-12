@@ -5,12 +5,24 @@
     </div>
     <form :model="form">
       <label for="where">Qayerdan</label>
-      <select v-model="form.where" name="where" id="where" class="select">
+      <select
+        v-model="form.where"
+        name="where"
+        id="where"
+        class="select"
+        placeholder="Qayerdan "
+      >
         <option value="fergana">Farg'ona</option>
         <option value="toshkent">Toshkent</option>
       </select>
       <label for="whereto">Qayerga</label>
-      <select v-model="form.whereto" name="whereto" id="whereto" class="select">
+      <select
+        v-model="form.whereto"
+        name="whereto"
+        id="whereto"
+        class="select"
+        placeholder="Qayerga boramiz"
+      >
         <option value="toshkent">Toshkent</option>
         <option value="fergana">Farg'ona</option>
       </select>
@@ -20,7 +32,9 @@
         name="passengerscount"
         id="passengerscount"
         class="select"
+        placeholder="Yo'lovchilar sonini kiriting"
       >
+        <option value="0">Faqat pochta</option>
         <option value="1">1 kishi</option>
         <option value="2">2 kishi</option>
         <option value="3">3 kishi</option>
@@ -33,6 +47,7 @@
         name="delivery"
         id="delivery"
         class="select"
+        placeholder="Pochta bormi"
       >
         <option value="deliveryYes">Pochta yo'q</option>
         <option value="deliveryNo">Pochta bor</option>
@@ -54,14 +69,14 @@ const form = ref({
 
 const showButton = () => {
   if (
-    form.where !== "" ||
-    form.whereto !== "" ||
-    form.passengerscount !== "" ||
-    form.delivery !== ""
+    form.where.length > 0 ||
+    form.whereto.length > 0 ||
+    form.passengerscount.length > 0 ||
+    form.delivery.length > 0
   ) {
-    tg.MainButton.show();
-  } else {
     tg.MainButton.hide();
+  } else {
+    tg.MainButton.show();
   }
 };
 const onSendData = () => {
