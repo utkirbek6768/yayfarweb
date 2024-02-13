@@ -55,10 +55,8 @@
       <label class="switch-holder">
         <input class="input" v-model="form.delivery" type="checkbox" />
         <span class="switch"></span>
-        <span v-if="form.delivery" class="label"
-          >Siz pochta biriktirdingiz</span
-        >
-        <span v-else class="label">Pochta biriktirish</span>
+        <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
+        <span v-else>Pochta biriktirish</span>
       </label>
     </form>
   </div>
