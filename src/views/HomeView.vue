@@ -23,8 +23,8 @@
         class="select"
         placeholder="Qayerga boramiz"
       >
-        <option value="toshkent">Toshkent</option>
         <option value="fergana">Farg'ona</option>
+        <option value="toshkent">Toshkent</option>
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
       <select
@@ -93,6 +93,9 @@ const onSendData = () => {
 
 watchEffect(() => {
   showButton();
+  tg.MainButton.setParams({
+    text: "Tayyor",
+  });
   tg.onEvent("mainButtonClicked", onSendData);
 });
 </script>
