@@ -53,10 +53,10 @@
       ></textarea>
 
       <label class="switch-holder">
-        <input class="input" v-model="form.delivery" type="checkbox" />
-        <span class="switch"></span>
         <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
         <span v-else>Pochta biriktirish</span>
+        <input class="input" v-model="form.delivery" type="checkbox" />
+        <span class="switch"></span>
       </label>
     </form>
   </div>
@@ -102,6 +102,7 @@ watchEffect(() => {
 .switch-holder {
   cursor: pointer;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
