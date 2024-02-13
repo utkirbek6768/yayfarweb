@@ -96,8 +96,8 @@ watchEffect(() => {
   tg.MainButton.setParams({
     text: "Tayyor",
   });
-  tg.expand();
-  tg.ready();
+  //   tg.expand();
+  //   tg.ready();
   tg.onEvent("mainButtonClicked", onSendData);
 });
 </script>
