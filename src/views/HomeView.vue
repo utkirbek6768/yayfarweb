@@ -75,7 +75,7 @@ const form = ref({
 });
 
 const showButton = () => {
-  const { where, whereto, passengerscount } = form.value;
+  const { where, whereto } = form.value;
   if (where && whereto && passengerscount && delivery) {
     tg.MainButton.show();
   } else {
@@ -93,7 +93,6 @@ const onSendData = () => {
 
 watchEffect(() => {
   showButton();
-
   tg.onEvent("mainButtonClicked", onSendData);
 });
 </script>
