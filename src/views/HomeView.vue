@@ -75,7 +75,7 @@ const form = ref({
 });
 
 const showButton = () => {
-  const { where, whereto, passengerscount, delivery } = form.value;
+  const { where, whereto, passengerscount } = form.value;
   if (where && whereto && passengerscount && delivery) {
     tg.MainButton.show();
   } else {
