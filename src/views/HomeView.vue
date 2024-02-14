@@ -3,9 +3,15 @@
     <div class="title">
       Mashina buyurtma buyurtma qilish uchun formani toldiring
     </div>
-    <form :model="form">
+    <form :model="form" enctype="multipart/form-data">
       <label for="file">File tanlang:</label>
-      <input type="file" id="file" name="file" @change="onFileChange" />
+      <input
+        type="file"
+        id="file"
+        name="file"
+        @change="onFileChange"
+        accept="image/png, image/jpeg"
+      />
       <label for="where">Qayerdan</label>
       <select
         v-model="form.where"
