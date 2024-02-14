@@ -4,14 +4,6 @@
       Mashina buyurtma buyurtma qilish uchun formani toldiring
     </div>
     <form :model="form" enctype="multipart/form-data">
-      <label for="file">File tanlang:</label>
-      <input
-        type="file"
-        id="file"
-        name="file"
-        @change="onFileChange"
-        accept="image/png, image/jpeg"
-      />
       <label for="where">Qayerdan</label>
       <select
         v-model="form.where"
@@ -80,12 +72,7 @@ const form = ref({
   passengerscount: 0,
   delivery: false,
   description: "",
-  file: null,
 });
-
-const onFileChange = (event) => {
-  form.file = event.target.files[0];
-};
 
 const showButton = () => {
   const { where, whereto } = form.value;
@@ -162,10 +149,10 @@ watchEffect(() => {
 }
 /* style for ON state */
 .input:checked + .switch {
-  background-color: #4fd1c5;
+  background-color: var(--tg-theme-bg-color, #248dde);
 }
 .input:checked + .switch::before {
-  border-color: #4fd1c5;
+  border-color: var(--tg-theme-bg-color, #248dde);
   transform: translateX(
     calc(var(--switch-container-width) - var(--switch-size))
   );
