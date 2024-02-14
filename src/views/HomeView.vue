@@ -4,6 +4,8 @@
       Mashina buyurtma buyurtma qilish uchun formani toldiring
     </div>
     <form :model="form">
+      <label for="file">File tanlang:</label>
+      <input type="file" id="file" name="file" @change="onFileChange" />
       <label for="where">Qayerdan</label>
       <select
         v-model="form.where"
@@ -72,7 +74,12 @@ const form = ref({
   passengerscount: 0,
   delivery: false,
   description: "",
+  file: null,
 });
+
+const onFileChange = (event) => {
+  form.file = event.target.files[0];
+};
 
 const showButton = () => {
   const { where, whereto } = form.value;

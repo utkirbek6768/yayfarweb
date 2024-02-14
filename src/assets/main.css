@@ -107,7 +107,7 @@
 	padding: 16px 20px;
 	text-transform: uppercase;
   }
-  input,
+  /* input,
   .input[contenteditable] {
 	display: block;
 	box-sizing: border-box;
@@ -155,7 +155,7 @@
 	overflow: hidden;
 	pointer-events: none;
 	z-index: -1;
-  }
+  } */
 
   .link {
 	color: var(--tg-theme-link-color);
