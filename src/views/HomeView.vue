@@ -149,10 +149,10 @@ watchEffect(() => {
 }
 /* style for ON state */
 .input:checked + .switch {
-  background-color: var(--tg-theme-bg-color, #248dde);
+  background-color: #248dde;
 }
 .input:checked + .switch::before {
-  border-color: var(--tg-theme-bg-color, #248dde);
+  border-color: #248dde;
   transform: translateX(
     calc(var(--switch-container-width) - var(--switch-size))
   );
