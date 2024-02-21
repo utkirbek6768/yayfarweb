@@ -69,9 +69,10 @@ const tg = window.Telegram.WebApp;
 const form = ref({
   where: "",
   whereto: "",
-  passengerscount: 0,
+  passengersCount: 0,
   delivery: false,
   description: "",
+  orderStatus: "newOrder",
 });
 
 const showButton = () => {
