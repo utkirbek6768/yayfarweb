@@ -28,13 +28,13 @@
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
       <select
-        v-model="form.passengerscount"
+        v-model="form.passengersCount"
         name="passengerscount"
         id="passengerscount"
         class="select"
         placeholder="Yo'lovchilar sonini kiriting"
       >
-        <option value="0"></option>
+        <option value="Ko'rsatilmagan"></option>
         <option value="1">1 kishi</option>
         <option value="2">2 kishi</option>
         <option value="3">3 kishi</option>
