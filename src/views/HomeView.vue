@@ -1,6 +1,6 @@
 <template>
   <div class="home_wrapper">
-    <div class="title">
+    <div class="title hometitle">
       Mashina buyurtma buyurtma qilish uchun formani toldiring
     </div>
     <form :model="form" enctype="multipart/form-data">
@@ -104,6 +104,9 @@ watchEffect(() => {
 </script>
 
 <style scoped>
+.hometitle {
+  font-size: 15px;
+}
 .switch-holder {
   cursor: pointer;
   display: flex;
