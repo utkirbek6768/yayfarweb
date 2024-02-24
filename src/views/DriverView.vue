@@ -18,12 +18,12 @@
         id="carNumber"
         placeholder="Mashina raqamini kiriting"
       />
-      <label for="cartype">Mashina modeli</label>
+      <label for="carType">Mashina modeli</label>
       <input
         type="text"
         v-model="form.carType"
-        name="cartype"
-        id="cartype"
+        name="carType"
+        id="carType"
         placeholder="Mashina turini kiriting"
       />
       <label for="where">Hudud</label>
