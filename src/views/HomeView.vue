@@ -1,7 +1,5 @@
 <template>
   <div class="home_wrapper">
-    <RouterLink to="/driver">Driver</RouterLink>
-    <RouterView />
     <div class="title hometitle">
       Mashina buyurtma qilish uchun formani toldiring
     </div>
