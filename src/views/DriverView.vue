@@ -21,7 +21,7 @@
       <label for="cartype">Mashina modeli</label>
       <input
         type="text"
-        v-model="form.cartype"
+        v-model="form.carType"
         name="cartype"
         id="cartype"
         placeholder="Mashina turini kiriting"
@@ -48,7 +48,7 @@ const tg = window.Telegram.WebApp;
 const form = ref({
   userName: "",
   carNumber: "",
-  cartype: "",
+  carType: "",
   active: false,
   where: "",
   tariff: "standart",
@@ -56,8 +56,8 @@ const form = ref({
 });
 
 const showButton = () => {
-  const { userName, carNumber, cartype, where } = form.value;
-  if (userName && carNumber && cartype && where) {
+  const { userName, carNumber, carType, where } = form.value;
+  if (userName && carNumber && carType && where) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
