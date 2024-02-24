@@ -1,7 +1,9 @@
 <template>
   <div class="home_wrapper">
+    <RouterLink to="/driver">Driver</RouterLink>
+    <RouterView />
     <div class="title hometitle">
-      Mashina buyurtma buyurtma qilish uchun formani toldiring
+      Mashina buyurtma qilish uchun formani toldiring
     </div>
     <form :model="form" enctype="multipart/form-data">
       <label for="where">Qayerdan</label>
@@ -64,6 +66,8 @@
 
 <script setup>
 import { ref, watchEffect } from "vue";
+import { RouterView } from "vue-router";
+// import router from "../router/index.js";
 const tg = window.Telegram.WebApp;
 
 const form = ref({
@@ -103,69 +107,4 @@ watchEffect(() => {
 });
 </script>
 
-<style scoped>
-.hometitle {
-  font-size: 15px;
-}
-.switch-holder {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-/* Visually hide the checkbox input from the DOM, we only need it semantically */
-.input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-/* color background */
-.switch {
-  --switch-container-width: 50px;
-  --switch-size: calc(var(--switch-container-width) / 2);
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: var(--switch-size);
-  flex-basis: var(--switch-container-width);
-  border-radius: var(--switch-size);
-  background-color: #999;
-  transition: background-color 0.25s ease-in-out;
-}
-/* circle inside the switch */
-.switch::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  height: calc(var(--switch-size) - 4px);
-  width: calc(var(--switch-size) - 4px);
-  border-radius: 9999px;
-  background-color: white;
-  transition: transform 0.375s ease-in-out;
-}
-/* style for ON state */
-.input:checked + .switch {
-  background-color: #248dde;
-}
-.input:checked + .switch::before {
-  border-color: #248dde;
-  transform: translateX(
-    calc(var(--switch-container-width) - var(--switch-size))
-  );
-}
-/* text */
-.label {
-  margin-left: 10px;
-  font-size: 24px;
-  color: #222;
-  display: block;
-}
-</style>
+<style scoped></style>
