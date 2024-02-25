@@ -41,7 +41,7 @@
         <option value="4">4 kishi</option>
         <option value="5">5 kishi</option>
       </select>
-      <label for="phoneNumber">Telefon raqaamingizni kiriting / </label>
+      <label for="phoneNumber">Telefon raqaamingizni kiriting </label>
       <input
         type="text"
         v-model="form.phoneNumber"
@@ -64,7 +64,11 @@
       <label class="switch-holder">
         <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
         <span v-else>Pochta biriktirish</span>
-        <input class="input" v-model="form.delivery" type="checkbox" />
+        <input
+          class="switch-holder_input"
+          v-model="form.delivery"
+          type="checkbox"
+        />
         <span class="switch"></span>
       </label>
     </form>

@@ -280,7 +280,7 @@ select,
   }
   
   /* Visually hide the checkbox input from the DOM, we only need it semantically */
-  .input {
+  .switch-holder_input {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -316,10 +316,10 @@ select,
 	transition: transform 0.375s ease-in-out;
   }
   /* style for ON state */
-  .input:checked + .switch {
+  .switch-holder_input:checked + .switch {
 	background-color: #248dde;
   }
-  .input:checked + .switch::before {
+  .switch-holder_input:checked + .switch::before {
 	border-color: #248dde;
 	transform: translateX(
 	  calc(var(--switch-container-width) - var(--switch-size))
