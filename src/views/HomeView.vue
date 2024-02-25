@@ -41,7 +41,17 @@
         <option value="4">4 kishi</option>
         <option value="5">5 kishi</option>
       </select>
-
+      <label for="phoneNumber"
+        >Izox / <span class="hint">ixtiyoriv</span></label
+      >
+      <input
+        type="text"
+        v-model="form.phoneNumber"
+        name="phoneNumber"
+        id="phoneNumber"
+        class="input"
+        placeholder="Telefon raqaamingizni kiriting"
+      />
       <label for="description"
         >Izox / <span class="hint">ixtiyoriv</span></label
       >
@@ -73,6 +83,7 @@ const form = ref({
   whereto: "",
   passengersCount: 0,
   delivery: false,
+  phoneNumber: "",
   description: "",
   orderStatus: "newOrder",
 });
