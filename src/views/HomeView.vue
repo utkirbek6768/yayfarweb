@@ -41,17 +41,16 @@
         <option value="4">4 kishi</option>
         <option value="5">5 kishi</option>
       </select>
-      <label for="phoneNumber"
-        >Izox / <span class="hint">ixtiyoriv</span></label
-      >
+      <label for="phoneNumber">Telefon raqaamingizni kiriting / </label>
       <input
         type="text"
         v-model="form.phoneNumber"
         name="phoneNumber"
         id="phoneNumber"
         class="input"
-        placeholder="Telefon raqaamingizni kiriting"
+        placeholder="+998 XX XXX XX XX"
       />
+
       <label for="description"
         >Izox / <span class="hint">ixtiyoriv</span></label
       >
