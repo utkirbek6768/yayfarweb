@@ -60,7 +60,7 @@
         id="description"
         class="textarea"
       ></textarea>
-
+      <!-- v-maska data-maska="+998 ## ###-##-##" -->
       <label class="switch-holder">
         <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
         <span v-else>Pochta biriktirish</span>
@@ -89,6 +89,9 @@ const form = ref({
   phoneNumber: "",
   description: "",
   orderStatus: "newOrder",
+  shift: false,
+  queue: false,
+  queueIndex: null,
 });
 
 const showButton = () => {
