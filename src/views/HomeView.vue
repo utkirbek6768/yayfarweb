@@ -89,9 +89,6 @@ const form = ref({
   phoneNumber: "",
   description: "",
   orderStatus: "newOrder",
-  shift: false,
-  queue: false,
-  queueIndex: null,
 });
 
 const showButton = () => {

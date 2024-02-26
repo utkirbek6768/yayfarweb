@@ -53,6 +53,9 @@ const form = ref({
   where: "",
   tariff: "standart",
   chatId: "",
+  shift: false,
+  queue: false,
+  queueIndex: null,
 });
 
 const showButton = () => {
