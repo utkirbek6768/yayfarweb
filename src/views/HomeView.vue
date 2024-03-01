@@ -48,7 +48,8 @@
         name="phoneNumber"
         id="phoneNumber"
         class="input"
-        placeholder="+998 XX XXX XX XX"
+        v-maska
+        data-maska="+998 ## ### ## ##"
       />
 
       <label for="description"
@@ -86,14 +87,14 @@ const form = ref({
   whereto: "",
   passengersCount: 0,
   delivery: false,
-  phoneNumber: "",
+  phoneNumber: "+998",
   description: "",
   orderStatus: "newOrder",
 });
 
 const showButton = () => {
-  const { where, whereto } = form.value;
-  if (where && whereto) {
+  const { where, whereto, phoneNumber } = form.value;
+  if (where && whereto && phoneNumber) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
