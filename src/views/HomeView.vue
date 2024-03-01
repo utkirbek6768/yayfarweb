@@ -61,7 +61,7 @@
         id="description"
         class="textarea"
       ></textarea>
-      <!-- v-maska data-maska="+998 ## ###-##-##" -->
+      <!-- v-maska data-maska="+998 ## ### ## ##" -->
       <label class="switch-holder">
         <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
         <span v-else>Pochta biriktirish</span>
@@ -78,6 +78,7 @@
 
 <script setup>
 import { ref, watchEffect } from "vue";
+import { vMaska } from "maska";
 import { RouterView } from "vue-router";
 // import router from "../router/index.js";
 const tg = window.Telegram.WebApp;
@@ -87,7 +88,7 @@ const form = ref({
   whereto: "",
   passengersCount: 0,
   delivery: false,
-  phoneNumber: "+998",
+  phoneNumber: "+998 ",
   description: "",
   orderStatus: "newOrder",
 });
