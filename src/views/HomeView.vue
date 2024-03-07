@@ -12,8 +12,8 @@
         class="select"
         placeholder="Qayerdan "
       >
-        <option value="fergana">Farg'ona</option>
-        <option value="toshkent">Toshkent</option>
+        <option value="fer">Farg'ona</option>
+        <option value="tosh">Toshkent</option>
       </select>
       <label for="whereto">Qayerga</label>
       <select
@@ -23,8 +23,8 @@
         class="select"
         placeholder="Qayerga boramiz"
       >
-        <option value="fergana">Farg'ona</option>
-        <option value="toshkent">Toshkent</option>
+        <option value="ferg">Farg'ona</option>
+        <option value="tosh">Toshkent</option>
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
       <select

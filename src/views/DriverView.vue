@@ -34,8 +34,8 @@
         class="select"
         placeholder="Hududingizni tanlang"
       >
-        <option value="fergana">Farg'ona</option>
-        <option value="toshkent">Toshkent</option>
+        <option value="fer">Farg'ona</option>
+        <option value="tosh">Toshkent</option>
       </select>
     </form>
   </div>
