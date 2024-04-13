@@ -6,6 +6,7 @@
     <form :model="form" enctype="multipart/form-data">
       <label for="where">Qayerdan</label>
       <select
+        @click="handlerCheckInput"
         v-model="form.where"
         name="where"
         id="where"
@@ -17,13 +18,14 @@
       </select>
       <label for="whereto">Qayerga</label>
       <select
+        @click="handlerCheckInput"
         v-model="form.whereto"
         name="whereto"
         id="whereto"
         class="select"
         placeholder="Qayerga boramiz"
       >
-        <option value="ferg">Farg'ona</option>
+        <option value="fer">Farg'ona</option>
         <option value="tosh">Toshkent</option>
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
@@ -79,20 +81,29 @@
 <script setup>
 import { ref, watchEffect } from "vue";
 import { vMaska } from "maska";
-import { RouterView } from "vue-router";
+// import { RouterView } from "vue-router";
 // import router from "../router/index.js";
 const tg = window.Telegram.WebApp;
 
 const form = ref({
   where: "",
   whereto: "",
-  passengersCount: 0,
+  passengersCount: 1,
   delivery: false,
-  phoneNumber: "+998 ",
+  phoneNumber: "+998 90 537 67 68",
   description: "",
   orderStatus: "newOrder",
 });
-
+const handlerCheckInput = () => {
+  if (form.value.where == "fer") {
+    form.value.whereto = "tosh";
+  } else if (form.value.where == "tosh") {
+    form.value.whereto = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
   if (where && whereto && phoneNumber.length >= 16) {
