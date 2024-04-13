@@ -6,7 +6,7 @@
     <form :model="form" enctype="multipart/form-data">
       <label for="where">Qayerdan</label>
       <select
-        @click="handlerCheckInput"
+        @click="handlerCheckInputFer"
         v-model="form.where"
         name="where"
         id="where"
@@ -18,7 +18,7 @@
       </select>
       <label for="whereto">Qayerga</label>
       <select
-        @click="handlerCheckInput"
+        @click="handlerCheckInputTosh"
         v-model="form.whereto"
         name="whereto"
         id="whereto"
@@ -94,11 +94,21 @@ const form = ref({
   description: "",
   orderStatus: "newOrder",
 });
-const handlerCheckInput = () => {
+const handlerCheckInputFer = () => {
   if (form.value.where == "fer") {
     form.value.whereto = "tosh";
   } else if (form.value.where == "tosh") {
     form.value.whereto = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
+const handlerCheckInputTosh = () => {
+  if (form.value.whereto == "fer") {
+    form.value.where = "tosh";
+  } else if (form.value.whereto == "tosh") {
+    form.value.where = "fer";
   } else {
     form.value.whereto = "";
     form.value.where = "";
