@@ -99,10 +99,6 @@ const handlerCheckInput = () => {
     form.value.whereto = "tosh";
   } else if (form.value.where == "tosh") {
     form.value.whereto = "fer";
-  } else if (form.value.whereto == "fer") {
-    form.value.where = "tosh";
-  } else if (form.value.whereto == "tosh") {
-    form.value.where = "fer";
   } else {
     form.value.whereto = "";
     form.value.where = "";
