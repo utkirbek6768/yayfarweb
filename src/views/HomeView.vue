@@ -6,7 +6,6 @@
     <form :model="form" enctype="multipart/form-data">
       <label for="where">Qayerdan</label>
       <select
-        @click="handlerCheckInputFer"
         v-model="form.where"
         name="where"
         id="where"
@@ -18,7 +17,6 @@
       </select>
       <label for="whereto">Qayerga</label>
       <select
-        @click="handlerCheckInputTosh"
         v-model="form.whereto"
         name="whereto"
         id="whereto"
@@ -104,16 +102,16 @@ const handlerCheckInputFer = () => {
     form.value.where = "";
   }
 };
-const handlerCheckInputTosh = () => {
-  if (form.value.whereto == "fer") {
-    form.value.where = "tosh";
-  } else if (form.value.whereto == "tosh") {
-    form.value.where = "fer";
-  } else {
-    form.value.whereto = "";
-    form.value.where = "";
-  }
-};
+// const handlerCheckInputTosh = () => {
+//   if (form.value.whereto == "fer") {
+//     form.value.where = "tosh";
+//   } else if (form.value.whereto == "tosh") {
+//     form.value.where = "fer";
+//   } else {
+//     form.value.whereto = "";
+//     form.value.where = "";
+//   }
+// };
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
   if (where && whereto && phoneNumber.length >= 16) {
