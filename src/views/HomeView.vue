@@ -84,24 +84,24 @@ import { vMaska } from "maska";
 const tg = window.Telegram.WebApp;
 
 const form = ref({
-  where: "",
-  whereto: "",
+  where: "fer",
+  whereto: "tosh",
   passengersCount: 1,
   delivery: false,
   phoneNumber: "+998 90 537 67 68",
   description: "",
   orderStatus: "newOrder",
 });
-const handlerCheckInputFer = () => {
-  if (form.value.where == "fer") {
-    form.value.whereto = "tosh";
-  } else if (form.value.where == "tosh") {
-    form.value.whereto = "fer";
-  } else {
-    form.value.whereto = "";
-    form.value.where = "";
-  }
-};
+// const handlerCheckInputFer = () => {
+//   if (form.value.where == "fer") {
+//     form.value.whereto = "tosh";
+//   } else if (form.value.where == "tosh") {
+//     form.value.whereto = "fer";
+//   } else {
+//     form.value.whereto = "";
+//     form.value.where = "";
+//   }
+// };
 // const handlerCheckInputTosh = () => {
 //   if (form.value.whereto == "fer") {
 //     form.value.where = "tosh";
