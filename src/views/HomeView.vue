@@ -84,11 +84,11 @@ import { vMaska } from "maska";
 const tg = window.Telegram.WebApp;
 
 const form = ref({
-  where: "fer",
-  whereto: "tosh",
-  passengersCount: 1,
+  where: "",
+  whereto: "",
+  passengersCount: "",
   delivery: false,
-  phoneNumber: "+998 90 537 67 68",
+  phoneNumber: "",
   description: "",
   orderStatus: "newOrder",
 });
