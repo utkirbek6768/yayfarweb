@@ -15,13 +15,13 @@
       id="image"
       @change="handleFileUpload"
     />
-    <button @click="sendPicture">Send Picture</button>
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
+const tg = window.Telegram.WebApp;
 
 const file = ref("");
 const fileURL = ref("");
@@ -53,11 +53,11 @@ const sendPicture = async () => {
     `
 	📩 Haydovchi malumotlari
 	
-	📍 Ismi: Utkirbek
+📍 Ismi: Utkirbek
 	
-	📍 Mashina raqami: 40 N 451 PA
+📍 Mashina raqami: 40 N 451 PA
 	
-	🚕 Mashina turi: Matiz
+🚕 Mashina turi: Matiz
 	  `
   );
   formData.append(
@@ -91,6 +91,22 @@ const sendPicture = async () => {
     console.error("Error sending picture:", error);
   }
 };
+const showButton = () => {
+  if (file.value) {
+    tg.MainButton.show();
+  } else {
+    tg.MainButton.hide();
+  }
+};
+watchEffect(() => {
+  showButton();
+  tg.MainButton.setParams({
+    text: "Tayyor",
+  });
+  tg.expand();
+  tg.ready();
+  tg.onEvent("mainButtonClicked", sendPicture);
+});
 </script>
 
 <style>
