@@ -1,20 +1,33 @@
 <template>
-  <div>
-    <div class="imageLabelContainer">
-      <img class="image" v-if="fileURL !== ''" :src="fileURL" alt="" />
-      <label v-else class="imageLabel" for="image"
-        ><img
-          class="image"
-          src="https://t4.ftcdn.net/jpg/05/69/90/73/360_F_569907313_fl7W3gX7YIVw2r05B4Ij1c21ix4xRUqD.jpg"
-          alt=""
-      /></label>
+  <div class="wrapper">
+    <div class="avtar_controller">
+      <h1>Form title</h1>
+      <div class="avatar">
+        <img class="image" v-if="fileURL !== ''" :src="fileURL" alt="" />
+        <label v-else class="imageLabel" for="image"
+          ><img
+            class="image"
+            src="https://t4.ftcdn.net/jpg/05/69/90/73/360_F_569907313_fl7W3gX7YIVw2r05B4Ij1c21ix4xRUqD.jpg"
+            alt="Default avatar image"
+        /></label>
+      </div>
+      <input
+        style="display: none"
+        type="file"
+        id="image"
+        @change="handleFileUpload"
+      />
     </div>
-    <input
-      style="display: none"
-      type="file"
-      id="image"
-      @change="handleFileUpload"
-    />
+    <form @submit.prevent>
+      <label for="id1">First name</label>
+      <input type="text" id="id1" />
+      <label for="id2">Last name</label>
+      <input type="text" id="id2" />
+      <label for="id3">Phone number</label>
+      <input type="text" id="id3" />
+      <label for="id4">Address</label>
+      <input type="text" id="id4" />
+    </form>
   </div>
 </template>
 
@@ -111,6 +124,12 @@ watchEffect(() => {
 </script>
 
 <style>
+.avtar_controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 20px;
+}
 .image {
   width: 100%;
   height: 100%;
@@ -126,7 +145,7 @@ watchEffect(() => {
   border-radius: 5px;
   overflow: hidden;
 }
-.imageLabelContainer {
+.avatar {
   display: block;
   object-fit: cover;
   width: 100px;
