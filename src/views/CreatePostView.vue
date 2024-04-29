@@ -26,7 +26,7 @@ const tg = window.Telegram.WebApp;
 const file = ref("");
 const fileURL = ref("");
 const BOT_TOKEN = "6302856184:AAFr7Wan3KQJlg0d3DLiCZZ6keAuT6zZU98";
-const CHAT_ID = "177482674";
+const CHAT_ID = "7181292313";
 
 const handleFileUpload = (event) => {
   const selectedFile = event.target.files[0];
@@ -57,8 +57,7 @@ const sendPicture = async () => {
 	
 📍 Mashina raqami: 40 N 451 PA
 	
-🚕 Mashina turi: Matiz
-	  `
+🚕 Mashina turi: Matiz`
   );
   formData.append(
     "reply_markup",
@@ -88,7 +87,6 @@ const sendPicture = async () => {
       }
     );
   } catch (error) {
-    alert("axios error");
     console.error("Error sending picture:", error);
   } finally {
     tg.close();
