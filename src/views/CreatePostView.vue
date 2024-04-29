@@ -35,7 +35,7 @@ const sendPicture = async () => {
     );
     alert("Image sent successfully!");
   } catch (error) {
-    alert("Image sent error!");
+    alert(JSON.stringify(error));
     console.error("Error sending picture:", error);
   }
 };
