@@ -87,10 +87,11 @@ const sendPicture = async () => {
         },
       }
     );
-    tg.expand();
   } catch (error) {
     alert("axios error");
     console.error("Error sending picture:", error);
+  } finally {
+    tg.close();
   }
 };
 const showButton = () => {
