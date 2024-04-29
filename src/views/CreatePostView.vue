@@ -87,7 +87,7 @@ const sendPicture = async () => {
         },
       }
     );
-    alert("axios successfull");
+    tg.expand();
   } catch (error) {
     alert("axios error");
     console.error("Error sending picture:", error);
