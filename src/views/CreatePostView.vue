@@ -11,6 +11,7 @@ import { ref } from "vue";
 
 const file = ref(null);
 const BOT_TOKEN = "6302856184:AAFr7Wan3KQJlg0d3DLiCZZ6keAuT6zZU98";
+const CHAT_ID = "177482674";
 
 const handleFileUpload = (event) => {
   file.value = event.target.files[0];
@@ -27,37 +28,32 @@ const sendPicture = async () => {
 
   try {
     await axios.post(
-      `https://api.telegram.org/bot6302856184:AAFr7Wan3KQJlg0d3DLiCZZ6keAuT6zZU98/sendPhoto`,
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto?chat_id=${CHAT_ID}`,
+      formData,
       {
-        chat_id: 177482674,
-        photo: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       }
     );
+
+    return;
+    // Get the file_id from the upload response
+    const fileId = uploadResponse.data.result.photo[0].file_id;
+    console.log(fileId);
+    await axios.post(
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto?chat_id=${CHAT_ID}`,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        photo: fileId,
+      }
+    );
+
     alert("Image sent successfully!");
   } catch (error) {
-    alert(JSON.stringify(error));
     console.error("Error sending picture:", error);
   }
 };
-// const sendImage = async () => {
-//   try {
-//     const formData = new FormData();
-//     formData.append("chatId", chatId.value);
-//     formData.append("imageFile", imageFile.value.files[0]);
-
-//     const response = await fetch("/send-image", {
-//       method: "POST",
-//       body: formData,
-//     });
-
-//     if (response.ok) {
-//       alert("Image sent successfully!");
-//     } else {
-//       alert("Failed to send image. Please try again.");
-//     }
-//   } catch (error) {
-//     console.error("Error sending image:", error);
-//     alert("An error occurred. Please try again later.");
-//   }
-// };
 </script>
