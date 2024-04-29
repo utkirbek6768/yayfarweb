@@ -106,7 +106,7 @@ const sendPicture = async () => {
   align-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 100%;
+  border-radius: 5px;
   overflow: hidden;
 }
 .imageLabelContainer {
