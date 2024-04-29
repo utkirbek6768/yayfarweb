@@ -33,9 +33,31 @@ const sendPicture = async () => {
         photo: formData,
       }
     );
-    console.log("Picture sent successfully");
+    alert("Image sent successfully!");
   } catch (error) {
+    alert("Image sent error!");
     console.error("Error sending picture:", error);
   }
 };
+// const sendImage = async () => {
+//   try {
+//     const formData = new FormData();
+//     formData.append("chatId", chatId.value);
+//     formData.append("imageFile", imageFile.value.files[0]);
+
+//     const response = await fetch("/send-image", {
+//       method: "POST",
+//       body: formData,
+//     });
+
+//     if (response.ok) {
+//       alert("Image sent successfully!");
+//     } else {
+//       alert("Failed to send image. Please try again.");
+//     }
+//   } catch (error) {
+//     console.error("Error sending image:", error);
+//     alert("An error occurred. Please try again later.");
+//   }
+// };
 </script>
