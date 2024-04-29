@@ -41,6 +41,7 @@ const handleFileUpload = (event) => {
 };
 
 const sendPicture = async () => {
+  alert("ishladim");
   if (file.value === "") {
     console.error("No file selected");
     return;
