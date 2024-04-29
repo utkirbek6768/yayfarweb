@@ -27,6 +27,8 @@
       <input type="text" id="id3" />
       <label for="id4">Address</label>
       <input type="text" id="id4" />
+      <label for="description">Description</label>
+      <textarea name="description" id="description"></textarea>
     </form>
   </div>
 </template>
