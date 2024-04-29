@@ -1,41 +1,43 @@
 <template>
   <div class="home_wrapper">
     <h1>Send Image to Telegram</h1>
-    <form action="/send-image" method="post">
+    <form @submit.prevent="sendImage">
       <label for="chatId">Chat ID:</label>
-      <input type="text" id="chatId" name="chatId" required /><br />
-      <label for="imageUrl">Image URL:</label>
-      <input type="text" id="imageUrl" name="imageUrl" required /><br />
+      <input type="text" v-model="chatId" required /><br />
+      <label for="imageFile">Select Image File:</label>
+      <input type="file" id="imageFile" ref="imageFile" required /><br />
       <button type="submit">Send Image</button>
     </form>
   </div>
 </template>
 
 <script setup>
-import { ref, watchEffect } from "vue";
-const tg = window.Telegram.WebApp;
+import { ref } from "vue";
 
-const showButton = () => {
-  tg.MainButton.show();
-};
+const chatId = ref("");
+const imageFile = ref(null);
 
-const onSendData = () => {
+const sendImage = async () => {
   try {
-    // tg.sendData(JSON.stringify());
+    const formData = new FormData();
+    formData.append("chatId", chatId.value);
+    formData.append("imageFile", imageFile.value.files[0]);
+
+    const response = await fetch("/send-image", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert("Image sent successfully!");
+    } else {
+      alert("Failed to send image. Please try again.");
+    }
   } catch (error) {
-    console.log(error);
+    console.error("Error sending image:", error);
+    alert("An error occurred. Please try again later.");
   }
 };
-
-watchEffect(() => {
-  showButton();
-  tg.MainButton.setParams({
-    text: "Tayyor",
-  });
-  tg.expand();
-  tg.ready();
-  tg.onEvent("mainButtonClicked", onSendData);
-});
 </script>
 
 <style></style>
