@@ -26,10 +26,13 @@ const sendPicture = async () => {
   formData.append("photo", file.value);
 
   try {
-    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-      chat_id: 177482674,
-      photo: formData,
-    });
+    await axios.post(
+      `https://api.telegram.org/bot6302856184:AAFr7Wan3KQJlg0d3DLiCZZ6keAuT6zZU98/sendPhoto`,
+      {
+        chat_id: 177482674,
+        photo: formData,
+      }
+    );
     console.log("Picture sent successfully");
   } catch (error) {
     console.error("Error sending picture:", error);
