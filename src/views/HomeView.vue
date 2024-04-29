@@ -49,7 +49,7 @@
         id="phoneNumber"
         class="input"
         v-maska
-        data-maska="+998 ## ### ## ##"
+        data-maska="+998#########"
       />
 
       <label for="description"
@@ -114,7 +114,7 @@ const form = ref({
 // };
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
-  if (where && whereto && phoneNumber.length >= 16) {
+  if (where && whereto && phoneNumber.length >= 13) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
