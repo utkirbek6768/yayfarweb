@@ -98,6 +98,7 @@ const showButton = () => {
     tg.MainButton.hide();
   }
 };
+tg.onEvent("mainButtonClicked", alert("ishladim"));
 watchEffect(() => {
   showButton();
   tg.MainButton.setParams({
@@ -105,7 +106,6 @@ watchEffect(() => {
   });
   tg.expand();
   tg.ready();
-  tg.onEvent("mainButtonClicked", alert("ishladim"));
 });
 </script>
 
