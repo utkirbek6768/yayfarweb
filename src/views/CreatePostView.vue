@@ -19,14 +19,14 @@
       />
     </div>
     <form @submit.prevent>
-      <label for="id1">First name</label>
-      <input type="text" id="id1" />
-      <label for="id2">Last name</label>
-      <input type="text" id="id2" />
-      <label for="id3">Phone number</label>
-      <input type="text" id="id3" />
-      <label for="id4">Address</label>
-      <input type="text" id="id4" />
+      <label for="fullName">Full name</label>
+      <input type="text" id="fullName" />
+      <label for="age">Age</label>
+      <input type="number" id="age" />
+      <label for="phoneNumber">Phone number</label>
+      <input type="text" id="phoneNumber" />
+      <label for="address">Address</label>
+      <input type="text" id="address" />
       <label for="description">Description</label>
       <textarea name="description" id="description"></textarea>
     </form>
