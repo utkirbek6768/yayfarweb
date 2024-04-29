@@ -41,9 +41,8 @@ const handleFileUpload = (event) => {
 };
 
 const sendPicture = async () => {
-  alert("ishladim");
   if (file.value === "") {
-    console.error("No file selected");
+    alert("Error");
     return;
   }
 
@@ -88,7 +87,9 @@ const sendPicture = async () => {
         },
       }
     );
+    alert("axios successfull");
   } catch (error) {
+    alert("axios error");
     console.error("Error sending picture:", error);
   }
 };
