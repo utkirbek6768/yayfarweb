@@ -105,7 +105,7 @@ watchEffect(() => {
   });
   tg.expand();
   tg.ready();
-  tg.onEvent("mainButtonClicked", sendPicture);
+  tg.onEvent("mainButtonClicked", alert("ishladim"));
 });
 </script>
 
