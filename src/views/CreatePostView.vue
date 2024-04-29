@@ -1,43 +1,12 @@
 <template>
   <div class="home_wrapper">
-    <h1>createpost</h1>
-    <div class="title drivertitle">Iltimos formani to'ldiring!</div>
-    <form :model="form" enctype="multipart/form-data">
-      <label for="userName">Ismingiz</label>
-      <input
-        type="text"
-        v-model="form.userName"
-        name="userName"
-        id="userName"
-        placeholder="Ismingizni kiriting"
-      />
-      <label for="carNumber">Mashina raqami</label>
-      <input
-        type="text"
-        v-model="form.carNumber"
-        name="carNumber"
-        id="carNumber"
-        placeholder="Mashina raqamini kiriting"
-      />
-      <label for="carType">Mashina modeli</label>
-      <input
-        type="text"
-        v-model="form.carType"
-        name="carType"
-        id="carType"
-        placeholder="Mashina turini kiriting"
-      />
-      <label for="where">Hudud</label>
-      <select
-        v-model="form.where"
-        name="where"
-        id="where"
-        class="select"
-        placeholder="Hududingizni tanlang"
-      >
-        <option value="fer">Farg'ona</option>
-        <option value="tosh">Toshkent</option>
-      </select>
+    <h1>Send Image to Telegram</h1>
+    <form action="/send-image" method="post">
+      <label for="chatId">Chat ID:</label>
+      <input type="text" id="chatId" name="chatId" required /><br />
+      <label for="imageUrl">Image URL:</label>
+      <input type="text" id="imageUrl" name="imageUrl" required /><br />
+      <button type="submit">Send Image</button>
     </form>
   </div>
 </template>
@@ -46,31 +15,13 @@
 import { ref, watchEffect } from "vue";
 const tg = window.Telegram.WebApp;
 
-const form = ref({
-  userName: "",
-  carNumber: "",
-  carType: "",
-  active: false,
-  where: "",
-  tariff: "standart",
-  chatId: "",
-  shift: false,
-  queue: false,
-  queueIndex: null,
-});
-
 const showButton = () => {
-  const { userName, carNumber, carType, where } = form.value;
-  if (userName && carNumber && carType && where) {
-    tg.MainButton.show();
-  } else {
-    tg.MainButton.hide();
-  }
+  tg.MainButton.show();
 };
 
 const onSendData = () => {
   try {
-    tg.sendData(JSON.stringify(form.value));
+    // tg.sendData(JSON.stringify());
   } catch (error) {
     console.log(error);
   }
