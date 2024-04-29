@@ -25,6 +25,34 @@ const sendPicture = async () => {
 
   const formData = new FormData();
   formData.append("photo", file.value);
+  formData.append(
+    "caption",
+    `
+📩 Haydovchi malumotlari
+
+📍 Ismi: Utkirbek
+
+📍 Mashina raqami: 40 N 451 PA
+
+🚕 Mashina turi: Matiz
+  `
+  );
+  formData.append(
+    "reply_markup",
+    JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "Smenani boshlash",
+            callback_data: JSON.stringify({
+              com: "start",
+              id: "resId",
+            }),
+          },
+        ],
+      ],
+    })
+  );
 
   try {
     await axios.post(
@@ -36,22 +64,6 @@ const sendPicture = async () => {
         },
       }
     );
-
-    return;
-    // Get the file_id from the upload response
-    const fileId = uploadResponse.data.result.photo[0].file_id;
-    console.log(fileId);
-    await axios.post(
-      `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto?chat_id=${CHAT_ID}`,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        photo: fileId,
-      }
-    );
-
-    alert("Image sent successfully!");
   } catch (error) {
     console.error("Error sending picture:", error);
   }
