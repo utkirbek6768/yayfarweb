@@ -88,7 +88,7 @@ const form = ref({
   whereto: "",
   passengersCount: "",
   delivery: false,
-  phoneNumber: "",
+  phoneNumber: "+998 ",
   description: "",
   orderStatus: "newOrder",
 });
