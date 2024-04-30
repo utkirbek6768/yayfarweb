@@ -43,7 +43,7 @@
       </select>
       <label for="phoneNumber">Telefon raqaamingizni kiriting </label>
       <input
-        type="text"
+        type="number"
         v-model="form.phoneNumber"
         name="phoneNumber"
         id="phoneNumber"
