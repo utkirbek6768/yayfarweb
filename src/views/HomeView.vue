@@ -42,7 +42,7 @@
         <option value="5">5 kishi</option>
       </select>
       <label for="phoneNumber">Telefon raqaamingizni kiriting </label>
-      <input
+      <!-- <input
         type="number"
         v-model="form.phoneNumber"
         name="phoneNumber"
@@ -50,6 +50,15 @@
         class="input"
         v-maska
         data-maska="+998## ### ## ##"
+      /> -->
+      <input
+        type="number"
+        v-model="form.phoneNumber"
+        name="phoneNumber"
+        id="phoneNumber"
+        class="input"
+        v-maska
+        data-maska="998#########"
       />
 
       <label for="description"
@@ -88,7 +97,7 @@ const form = ref({
   whereto: "",
   passengersCount: "",
   delivery: false,
-  phoneNumber: "+998 ",
+  phoneNumber: "998",
   description: "",
   orderStatus: "newOrder",
 });
