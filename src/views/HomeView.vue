@@ -44,15 +44,6 @@
         <option value="5">5 kishi</option>
       </select>
       <label for="phoneNumber">Telefon raqaamingizni kiriting </label>
-      <!-- <input
-        type="number"
-        v-model="form.phoneNumber"
-        name="phoneNumber"
-        id="phoneNumber"
-        class="input"
-        v-maska
-        data-maska="+998## ### ## ##"
-      /> -->
       <input
         type="number"
         v-model="form.phoneNumber"
@@ -64,7 +55,7 @@
       />
 
       <label for="description"
-        >Izox / <span class="hint">ixtiyoriv</span></label
+        >Izox <span class="hint">( ixtiyoriv )</span></label
       >
       <textarea
         v-model="form.description"
@@ -72,7 +63,6 @@
         id="description"
         class="textarea"
       ></textarea>
-      <!-- v-maska data-maska="+998 ## ### ## ##" -->
       <label class="switch-holder">
         <span v-if="form.delivery">Siz pochta biriktirdingiz</span>
         <span v-else>Pochta biriktirish</span>
