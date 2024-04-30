@@ -10,7 +10,8 @@
         name="where"
         id="where"
         class="select"
-        placeholder="Qayerdan "
+        placeholder="Qayerdan"
+        @change="handlerCheckInputFer"
       >
         <option value="fer">Farg'ona</option>
         <option value="tosh">Toshkent</option>
@@ -22,6 +23,7 @@
         id="whereto"
         class="select"
         placeholder="Qayerga boramiz"
+        @change="handlerCheckInputTosh"
       >
         <option value="fer">Farg'ona</option>
         <option value="tosh">Toshkent</option>
@@ -101,26 +103,26 @@ const form = ref({
   description: "",
   orderStatus: "newOrder",
 });
-// const handlerCheckInputFer = () => {
-//   if (form.value.where == "fer") {
-//     form.value.whereto = "tosh";
-//   } else if (form.value.where == "tosh") {
-//     form.value.whereto = "fer";
-//   } else {
-//     form.value.whereto = "";
-//     form.value.where = "";
-//   }
-// };
-// const handlerCheckInputTosh = () => {
-//   if (form.value.whereto == "fer") {
-//     form.value.where = "tosh";
-//   } else if (form.value.whereto == "tosh") {
-//     form.value.where = "fer";
-//   } else {
-//     form.value.whereto = "";
-//     form.value.where = "";
-//   }
-// };
+const handlerCheckInputFer = () => {
+  if (form.value.where == "fer") {
+    form.value.whereto = "tosh";
+  } else if (form.value.where == "tosh") {
+    form.value.whereto = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
+const handlerCheckInputTosh = () => {
+  if (form.value.whereto == "fer") {
+    form.value.where = "tosh";
+  } else if (form.value.whereto == "tosh") {
+    form.value.where = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
   if (where && whereto) {
