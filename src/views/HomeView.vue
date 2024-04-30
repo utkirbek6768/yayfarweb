@@ -49,7 +49,7 @@
         id="phoneNumber"
         class="input"
         v-maska
-        data-maska="+998#########"
+        data-maska="+998## ### ## ##"
       />
 
       <label for="description"
