@@ -123,7 +123,7 @@ const form = ref({
 // };
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
-  if (where && whereto && phoneNumber.length >= 10) {
+  if (where && whereto && phoneNumber.length >= 7) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
