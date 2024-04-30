@@ -122,8 +122,8 @@ const form = ref({
 //   }
 // };
 const showButton = () => {
-  const { where, whereto } = form.value;
-  if (where && whereto) {
+  const { where, whereto, phoneNumber } = form.value;
+  if (where && whereto && phoneNumber.length >= 10) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
