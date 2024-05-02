@@ -30,6 +30,7 @@
       <label for="description">Description</label>
       <textarea name="description" id="description"></textarea>
     </form>
+    <button @click="sendPicture">send</button>
   </div>
 </template>
 
