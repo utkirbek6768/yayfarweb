@@ -10,6 +10,14 @@
         id="userName"
         placeholder="Ismingizni kiriting"
       />
+      <label for="phoneNumber">Telefon raqam</label>
+      <input
+        type="number"
+        v-model="form.phoneNumber"
+        name="phoneNumber"
+        id="phoneNumber"
+        placeholder="Telefon raqamingizni kiriting"
+      />
       <label for="carNumber">Mashina raqami</label>
       <input
         type="text"
@@ -47,6 +55,7 @@ const tg = window.Telegram.WebApp;
 
 const form = ref({
   userName: "",
+  phoneNumber: "",
   carNumber: "",
   carType: "",
   active: false,
@@ -59,8 +68,8 @@ const form = ref({
 });
 
 const showButton = () => {
-  const { userName, carNumber, carType, where } = form.value;
-  if (userName && carNumber && carType && where) {
+  const { userName, phoneNumber, carNumber, carType, where } = form.value;
+  if (userName && carNumber && carType && where && phoneNumber) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
