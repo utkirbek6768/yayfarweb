@@ -44,9 +44,7 @@
         <option value="5">5 kishi</option>
       </select>
       <label for="phoneNumber">Telefon raqaamingizni kiriting </label
-      ><span>{{ form.phoneNumber.length }}</span
-      ><span>cvbcvbcb</span>
-      <span>{{ form.phoneNumber }}</span>
+      ><span>{{ form.phoneNumber.length }}</span>
       <input
         type="number"
         v-model="form.phoneNumber"
@@ -120,8 +118,9 @@ const handlerCheckInputTosh = () => {
 };
 
 const showButton = () => {
+  // && phoneNumber.length >= 11
   const { where, whereto, phoneNumber } = form.value;
-  if (where && whereto && phoneNumber.length >= 11) {
+  if (where && whereto) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
