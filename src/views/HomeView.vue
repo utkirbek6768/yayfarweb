@@ -44,7 +44,9 @@
         <option value="5">5 kishi</option>
       </select>
       <label for="phoneNumber">Telefon raqaamingizni kiriting </label
-      ><span>{{ form.phoneNumber.length }}</span>
+      ><span>{{ form.phoneNumber.length }}</span
+      ><span>cvbcvbcb</span>
+      <span>{{ form.phoneNumber }}</span>
       <input
         type="number"
         v-model="form.phoneNumber"
@@ -53,7 +55,6 @@
         class="input"
         v-maska
         data-maska="998#########"
-        @change="showButton()"
       />
 
       <label for="description"
