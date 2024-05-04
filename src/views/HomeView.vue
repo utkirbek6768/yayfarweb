@@ -87,7 +87,7 @@ const tg = window.Telegram.WebApp;
 const form = ref({
   where: "",
   whereto: "",
-  passengersCount: "1",
+  passengersCount: "",
   delivery: false,
   phoneNumber: "998",
   description: "",
@@ -115,7 +115,7 @@ const handlerCheckInputTosh = () => {
 };
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
-  if (where && whereto) {
+  if (where && whereto && phoneNumber.length >= 12) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
