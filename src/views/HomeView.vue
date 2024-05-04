@@ -81,6 +81,59 @@
 
 <script setup>
 import { ref, watchEffect } from "vue";
+
+const form = ref({
+  where: "",
+  whereto: "",
+  passengersCount: "",
+  delivery: false,
+  phoneNumber: "998",
+  description: "",
+  orderStatus: "newOrder",
+});
+
+const handleCheckInput = (direction) => {
+  if (direction === "fer-to-tosh") {
+    form.value.whereto = "tosh";
+  } else if (direction === "tosh-to-fer") {
+    form.value.whereto = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
+
+const showButton = () => {
+  const { where, whereto, phoneNumber } = form.value;
+  if (where && whereto && phoneNumber.length >= 11) {
+    // Assuming tg is a global variable for Telegram integration
+    tg.MainButton.show();
+  } else {
+    tg.MainButton.hide();
+  }
+};
+
+const onSendData = () => {
+  try {
+    tg.sendData(JSON.stringify(form.value));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+watchEffect(() => {
+  showButton();
+});
+
+tg.MainButton.setParams({
+  text: "Tayyor",
+});
+tg.expand();
+tg.ready();
+tg.onEvent("mainButtonClicked", onSendData);
+</script>
+<!-- <script setup>
+import { ref, watchEffect } from "vue";
 import { vMaska } from "maska";
 // import { RouterView } from "vue-router";
 // import router from "../router/index.js";
@@ -95,6 +148,7 @@ const form = ref({
   description: "",
   orderStatus: "newOrder",
 });
+
 const handlerCheckInputFer = () => {
   if (form.value.where == "fer") {
     form.value.whereto = "tosh";
@@ -105,6 +159,7 @@ const handlerCheckInputFer = () => {
     form.value.where = "";
   }
 };
+
 const handlerCheckInputTosh = () => {
   if (form.value.whereto == "fer") {
     form.value.where = "tosh";
@@ -115,6 +170,7 @@ const handlerCheckInputTosh = () => {
     form.value.where = "";
   }
 };
+
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
   if (where && whereto && phoneNumber.length >= 11) {
@@ -141,6 +197,6 @@ watchEffect(() => {
   tg.ready();
   tg.onEvent("mainButtonClicked", onSendData);
 });
-</script>
+</script> -->
 
 <style scoped></style>
