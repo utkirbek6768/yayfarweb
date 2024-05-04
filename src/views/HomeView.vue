@@ -80,7 +80,11 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watchEffect } from "vue";
+import { vMaska } from "maska";
+// import { RouterView } from "vue-router";
+// import router from "../router/index.js";
+const tg = window.Telegram.WebApp;
 
 const form = ref({
   where: "",
@@ -91,22 +95,29 @@ const form = ref({
   description: "",
   orderStatus: "newOrder",
 });
-
-const handleCheckInput = (direction) => {
-  if (direction === "fer-to-tosh") {
+const handlerCheckInputFer = () => {
+  if (form.value.where == "fer") {
     form.value.whereto = "tosh";
-  } else if (direction === "tosh-to-fer") {
+  } else if (form.value.where == "tosh") {
     form.value.whereto = "fer";
   } else {
     form.value.whereto = "";
     form.value.where = "";
   }
 };
-
+const handlerCheckInputTosh = () => {
+  if (form.value.whereto == "fer") {
+    form.value.where = "tosh";
+  } else if (form.value.whereto == "tosh") {
+    form.value.where = "fer";
+  } else {
+    form.value.whereto = "";
+    form.value.where = "";
+  }
+};
 const showButton = () => {
   const { where, whereto, phoneNumber } = form.value;
   if (where && whereto && phoneNumber.length >= 11) {
-    // Assuming tg is a global variable for Telegram integration
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
@@ -121,25 +132,15 @@ const onSendData = () => {
   }
 };
 
-watch(
-  [
-    () => form.value.where,
-    () => form.value.whereto,
-    () => form.value.phoneNumber,
-  ],
-  () => {
-    showButton();
-  }
-);
-
-tg.MainButton.setParams({
-  text: "Tayyor",
+watchEffect(() => {
+  showButton();
+  tg.MainButton.setParams({
+    text: "Tayyor",
+  });
+  tg.expand();
+  tg.ready();
+  tg.onEvent("mainButtonClicked", onSendData);
 });
-tg.expand();
-tg.ready();
-tg.onEvent("mainButtonClicked", onSendData);
 </script>
-
-<style scoped></style>
 
 <style scoped></style>
