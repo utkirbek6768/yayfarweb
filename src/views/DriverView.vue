@@ -45,6 +45,15 @@
         <option value="fer">Farg'ona</option>
         <option value="tosh">Toshkent</option>
       </select>
+      <div class="carNumberController">
+        <input
+          type="text"
+          name="licenseplate"
+          class="licenseplate"
+          maxlength="12"
+          placeholder="01 A 777 AA"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -95,4 +104,39 @@ watchEffect(() => {
 });
 </script>
 
-<style></style>
+<style scoped>
+body {
+  background-color: #34495e;
+}
+
+.carNumberController {
+  width: 100%;
+}
+
+.licenseplate {
+  color: #333;
+  background-color: #fff;
+  background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrGe9kcyJPWUX55-uvh5cB4zo8zXF-CkNrxN2FkfKIlw-B0i0pDhkvrZ72WQB6mOEsBLHN_6TPVMaG8kXgtphbu7mGM1BxtSx5Jl4uPJXCIhLTdjg4MUpx_NiK7aZqu3qNclIalQsEcG2P/s320/uzbekistan-flag.jpg);
+  background-repeat: no-repeat;
+  background-size: 70px 70px;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+
+  padding-left: 60px;
+  padding-bottom: 10px;
+
+  width: 100%;
+  border: 3px solid red;
+  border-radius: 10px;
+  outline: none;
+
+  &::placeholder {
+    color: #eee;
+  }
+}
+</style>
