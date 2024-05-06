@@ -119,9 +119,8 @@ const handlerCheckInputTosh = () => {
 };
 
 const showButton = () => {
-  // && phoneNumber.length >= 11
   const { where, whereto, phoneNumber } = form.value;
-  if (where && whereto) {
+  if (where && whereto && phoneNumber.length >= 16) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
