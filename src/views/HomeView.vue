@@ -89,7 +89,7 @@ const tg = window.Telegram.WebApp;
 const form = ref({
   where: "",
   whereto: "",
-  passengersCount: "Kiritilmagan",
+  passengersCount: "0",
   delivery: false,
   phoneNumber: "+998",
   description: "",
