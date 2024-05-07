@@ -12,11 +12,13 @@
       />
       <label for="phoneNumber">Telefon raqam</label>
       <input
-        type="number"
+        type="tel"
         v-model="form.phoneNumber"
         name="phoneNumber"
         id="phoneNumber"
         placeholder="Telefon raqamingizni kiriting"
+        v-maska
+        data-maska="+998 ## ### ## ##"
       />
       <label for="carNumber">Mashina raqami</label>
       <input
@@ -52,6 +54,8 @@
           class="licenseplate"
           maxlength="12"
           placeholder="01 A 777 AA"
+          v-maska
+          data-maska="## # ### ##"
         />
       </div>
     </form>
@@ -60,11 +64,13 @@
 
 <script setup>
 import { ref, watchEffect } from "vue";
+import { vMaska } from "maska";
+
 const tg = window.Telegram.WebApp;
 
 const form = ref({
   userName: "",
-  phoneNumber: "",
+  phoneNumber: "+998",
   carNumber: "",
   carType: "",
   active: false,

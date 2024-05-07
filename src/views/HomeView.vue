@@ -43,9 +43,7 @@
         <option value="4">4 kishi</option>
         <option value="5">5 kishi</option>
       </select>
-      <label for="phoneNumber">Telefon raqaamingizni kiriting </label
-      ><span>{{ form.phoneNumber.length }}</span
-      ><span>{{ typeof form.phoneNumber }}</span>
+      <label for="phoneNumber">Telefon raqaamingizni kiriting </label>
       <input
         type="tel"
         v-model="form.phoneNumber"
