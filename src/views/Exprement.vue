@@ -18,18 +18,14 @@
         @change="handleFileUpload"
       />
     </div>
-    <form @submit.prevent="submitForm">
-      <label for="fullName">Full name</label>
-      <input type="text" id="fullName" v-model="fullName" />
-      <!-- Add other form fields here -->
-      <button type="submit" @click="submitForm()">Send</button>
-    </form>
+
+    <button type="submit" @click="onSendData()">Send</button>
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 const tg = window.Telegram.WebApp;
 
 const file = ref("");
@@ -49,13 +45,26 @@ const handleFileUpload = (event) => {
   reader.readAsDataURL(selectedFile);
 };
 
-const submitForm = async () => {
+const onSendData = async () => {
   try {
     tg.sendData(JSON.stringify(file));
   } catch (error) {
     console.log(error);
   }
 };
+watchEffect(() => {
+  if (file.value) {
+    tg.MainButton.show();
+  } else {
+    tg.MainButton.hide();
+  }
+  tg.MainButton.setParams({
+    text: "Tayyor",
+  });
+  tg.expand();
+  tg.ready();
+  tg.onEvent("mainButtonClicked", onSendData);
+});
 </script>
 
 <style>
