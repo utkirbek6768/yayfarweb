@@ -52,7 +52,7 @@ const submitForm = async () => {
     formData.append("photo", file.value); // Incorrect, this appends [object Object]
 
     // Correct way to append the file object
-    formData.append("photo", file.value, file.value.name);
+    formData.append("photo", file, file.value.name);
 
     // Send the form data to the Telegram bot
     tg.sendData(JSON.stringify(formData));
