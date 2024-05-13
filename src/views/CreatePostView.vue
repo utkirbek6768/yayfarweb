@@ -42,7 +42,10 @@ const tg = window.Telegram.WebApp;
 const file = ref("");
 const fileURL = ref("");
 const BOT_TOKEN = "6302856184:AAFr7Wan3KQJlg0d3DLiCZZ6keAuT6zZU98";
-const CHAT_ID = "7181292313";
+const CHAT_ID = "7181292313"; // utkir 3
+// const CHAT_ID = "177482674"; // utkir 1
+// const CHAT_ID = "6658866622";
+// const CHAT_ID = "6302856184"; // dispatcher bot id
 
 const handleFileUpload = (event) => {
   const selectedFile = event.target.files[0];
@@ -68,11 +71,11 @@ const sendPicture = async () => {
     "caption",
     `
 	📩 Haydovchi malumotlari
-	
+
 📍 Ismi: Utkirbek
-	
+
 📍 Mashina raqami: 40 N 451 PA
-	
+
 🚕 Mashina turi: Matiz`
   );
   formData.append(
@@ -81,10 +84,10 @@ const sendPicture = async () => {
       inline_keyboard: [
         [
           {
-            text: "Smenani boshlash",
+            text: "Qabul qilish",
             callback_data: JSON.stringify({
-              com: "start",
-              id: "resId",
+              com: "test",
+              id: "testid",
             }),
           },
         ],
