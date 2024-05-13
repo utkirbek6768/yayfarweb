@@ -47,6 +47,13 @@ const handleFileUpload = (event) => {
 
 const onSendData = async () => {
   try {
+    if (file.value === "") {
+      alert("Error");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("photo", file.value);
     tg.sendData(JSON.stringify(file));
   } catch (error) {
     console.log(error);
