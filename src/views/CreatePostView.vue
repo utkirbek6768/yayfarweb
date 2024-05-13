@@ -96,7 +96,7 @@ const sendPicture = async () => {
   );
 
   try {
-    await axios.post(
+    const res = await axios.post(
       `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto?chat_id=${CHAT_ID}`,
       formData,
       {
@@ -105,6 +105,8 @@ const sendPicture = async () => {
         },
       }
     );
+    console.log("bu res", res.data.result.photo[0]);
+    tg.sendData(JSON.stringify(res.data.result.photo[0].file_id));
   } catch (error) {
     console.error("Error sending picture:", error);
   } finally {

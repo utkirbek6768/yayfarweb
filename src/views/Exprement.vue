@@ -18,24 +18,31 @@
         @change="handleFileUpload"
       />
     </div>
-    <button @click="submitForm">Submit</button>
+    <form @submit.prevent="submitForm">
+      <label for="fullName">Full name</label>
+      <input type="text" id="fullName" v-model="fullName" />
+      <!-- Add other form fields here -->
+      <button type="submit" @click="submitForm()">Send</button>
+    </form>
   </div>
 </template>
 
 <script setup>
-import { ref, watchEffect } from "vue";
-const tg = window.Telegram.WebApp;
+import axios from "axios";
+import { ref } from "vue";
 
 const file = ref("");
 const fileURL = ref("");
+const fullName = ref("");
+// Add other form field refs here
 
 const handleFileUpload = (event) => {
   const selectedFile = event.target.files[0];
   if (!selectedFile) return;
 
-  file.value = selectedFile;
   const reader = new FileReader();
   reader.onload = (e) => {
+    file.value = selectedFile;
     fileURL.value = e.target.result;
   };
   reader.readAsDataURL(selectedFile);
@@ -43,37 +50,13 @@ const handleFileUpload = (event) => {
 
 const submitForm = async () => {
   try {
-    if (file.value === "") {
-      alert("Please select a file");
-      return;
-    }
-    const formData = new FormData();
-    formData.append("photo", file);
-    const data = {};
-    for (let [key, value] of formData.entries()) {
-      data[key] = value;
-    }
-    tg.sendData(JSON.stringify(data));
-    alert("Form submitted successfully");
+    tg.sendData(JSON.stringify(form));
   } catch (error) {
-    console.error("Error sending picture:", error);
-    alert("Error submitting form. Please try again.");
-  } finally {
-    tg.close();
+    console.log(error);
   }
 };
-
-watchEffect(() => {
-  if (file.value) {
-    tg.MainButton.show();
-  } else {
-    tg.MainButton.hide();
-  }
-  tg.MainButton.setParams({
-    text: "Tayyor",
-  });
-  tg.expand();
-  tg.ready();
-  tg.onEvent("mainButtonClicked", submitForm);
-});
 </script>
+
+<style>
+/* Your styles here */
+</style>
