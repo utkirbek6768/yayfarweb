@@ -47,16 +47,13 @@ const submitForm = async () => {
       alert("Please select a file");
       return;
     }
-
     const formData = new FormData();
-    formData.append("photo", file.value); // Incorrect, this appends [object Object]
-
-    // Correct way to append the file object
     formData.append("photo", file);
-
-    // Send the form data to the Telegram bot
-    tg.sendData(JSON.stringify(formData));
-
+    const data = {};
+    for (let [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+    tg.sendData(JSON.stringify(data));
     alert("Form submitted successfully");
   } catch (error) {
     console.error("Error sending picture:", error);
@@ -75,6 +72,7 @@ watchEffect(() => {
   tg.MainButton.setParams({
     text: "Tayyor",
   });
+  tg.expand();
   tg.ready();
   tg.onEvent("mainButtonClicked", submitForm);
 });
