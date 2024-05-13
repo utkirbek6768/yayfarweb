@@ -48,7 +48,7 @@ const submitForm = async () => {
       return;
     }
     const formData = new FormData();
-    formData.append("photo", file.value);
+    formData.append("photo", file);
     const data = {};
     for (let [key, value] of formData.entries()) {
       data[key] = value;
