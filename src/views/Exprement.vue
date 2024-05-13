@@ -30,6 +30,7 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
+const tg = window.Telegram.WebApp;
 
 const file = ref("");
 const fileURL = ref("");
@@ -50,7 +51,7 @@ const handleFileUpload = (event) => {
 
 const submitForm = async () => {
   try {
-    tg.sendData(JSON.stringify(form));
+    tg.sendData(JSON.stringify(file));
   } catch (error) {
     console.log(error);
   }
