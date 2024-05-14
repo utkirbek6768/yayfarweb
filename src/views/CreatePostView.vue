@@ -30,7 +30,6 @@
       <label for="description">Description</label>
       <textarea name="description" id="description"></textarea>
     </form>
-    <button @click="sendPicture">send</button>
   </div>
 </template>
 
@@ -69,14 +68,13 @@ const sendPicture = async () => {
   formData.append("photo", file.value);
   formData.append(
     "caption",
-    `
-	📩 Haydovchi malumotlari
+    `	📩 Haydovchi malumotlari
 
-📍 Ismi: Utkirbek
+📍Ismi: Utkirbek
 
-📍 Mashina raqami: 40 N 451 PA
+📍Mashina raqami: 40 N 451 PA
 
-🚕 Mashina turi: Matiz`
+🚕Mashina turi: Matiz`
   );
   formData.append(
     "reply_markup",
@@ -105,8 +103,8 @@ const sendPicture = async () => {
         },
       }
     );
-    console.log("bu res", res.data.result.photo);
-    tg.sendData(JSON.stringify(res.data.result));
+    // tg.sendData(JSON.stringify(res.data.result));
+    tg.sendData(res.data.result);
   } catch (error) {
     console.error("Error sending picture:", error);
   } finally {
