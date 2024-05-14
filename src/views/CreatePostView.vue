@@ -106,7 +106,7 @@ const sendPicture = async () => {
       }
     );
     console.log("bu res", res.data.result.photo);
-    tg.sendData(JSON.stringify(res.data.result.photo));
+    tg.sendData(JSON.stringify(res.data.result));
   } catch (error) {
     console.error("Error sending picture:", error);
   } finally {
