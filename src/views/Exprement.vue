@@ -53,7 +53,7 @@ const onSendData = async () => {
     }
 
     const formData = new FormData();
-    formData.append("photo", file.value);
+    formData.append("photo", file);
     tg.sendData(JSON.stringify(file));
   } catch (error) {
     console.log(error);
