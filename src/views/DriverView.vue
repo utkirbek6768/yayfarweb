@@ -44,8 +44,8 @@
         class="select"
         placeholder="Hududingizni tanlang"
       >
-        <option value="fer">Farg'ona</option>
-        <option value="tosh">Toshkent</option>
+        <option value="far">Farg'ona</option>
+        <option value="yay">Yaypan</option>
       </select>
       <!-- <div class="carNumberController">
         <input
