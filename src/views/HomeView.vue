@@ -14,7 +14,7 @@
         @change="handlerCheckInputFer"
       >
         <option value="fer">Farg'ona</option>
-        <option value="tosh">Toshkent</option>
+        <option value="tosh">Yaypan</option>
       </select>
       <label for="whereto">Qayerga</label>
       <select
@@ -26,7 +26,7 @@
         @change="handlerCheckInputTosh"
       >
         <option value="fer">Farg'ona</option>
-        <option value="tosh">Toshkent</option>
+        <option value="tosh">Yaypan</option>
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
       <select
@@ -95,10 +95,10 @@ const form = ref({
 });
 
 const handlerCheckInputFer = () => {
-  if (form.value.where == "fer") {
-    form.value.whereto = "tosh";
-  } else if (form.value.where == "tosh") {
-    form.value.whereto = "fer";
+  if (form.value.where == "far") {
+    form.value.whereto = "yay";
+  } else if (form.value.where == "yay") {
+    form.value.whereto = "far";
   } else {
     form.value.whereto = "";
     form.value.where = "";
@@ -106,10 +106,10 @@ const handlerCheckInputFer = () => {
 };
 
 const handlerCheckInputTosh = () => {
-  if (form.value.whereto == "fer") {
-    form.value.where = "tosh";
-  } else if (form.value.whereto == "tosh") {
-    form.value.where = "fer";
+  if (form.value.whereto == "far") {
+    form.value.where = "yay";
+  } else if (form.value.whereto == "yay") {
+    form.value.where = "far";
   } else {
     form.value.whereto = "";
     form.value.where = "";
