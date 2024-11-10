@@ -36,7 +36,7 @@
         id="carType"
         placeholder="Mashina turini kiriting"
       />
-      <label for="where">Hudud</label>
+      <!-- <label for="where">Hudud</label>
       <select
         v-model="form.where"
         name="where"
@@ -46,7 +46,7 @@
       >
         <option value="far">Farg'ona</option>
         <option value="yay">Yaypan</option>
-      </select>
+      </select> -->
       <!-- <div class="carNumberController">
         <input
           type="text"
@@ -74,7 +74,7 @@ const form = ref({
   carNumber: "",
   carType: "",
   active: false,
-  where: "",
+  where: "yay",
   tariff: "standart",
   chatId: "",
   shift: false,
@@ -83,8 +83,8 @@ const form = ref({
 });
 
 const showButton = () => {
-  const { userName, phoneNumber, carNumber, carType, where } = form.value;
-  if (userName && carNumber && carType && where && phoneNumber) {
+  const { userName, phoneNumber, carNumber, carType } = form.value;
+  if (userName && carNumber && carType && phoneNumber) {
     tg.MainButton.show();
   } else {
     tg.MainButton.hide();
