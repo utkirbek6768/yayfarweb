@@ -13,8 +13,8 @@
         placeholder="Qayerdan"
         @change="handlerCheckInputFer"
       >
-        <option value="fer">Farg'ona</option>
-        <option value="tosh">Yaypan</option>
+        <option value="fer">Farg'onadan</option>
+        <option value="yay">Yaypandan</option>
       </select>
       <label for="whereto">Qayerga</label>
       <select
@@ -25,8 +25,8 @@
         placeholder="Qayerga boramiz"
         @change="handlerCheckInputTosh"
       >
-        <option value="fer">Farg'ona</option>
-        <option value="tosh">Yaypan</option>
+        <option value="fer">Farg'onaga</option>
+        <option value="yay">Yaypanga</option>
       </select>
       <label for="passengerscount">Yo'lovchilar soni</label>
       <select
