@@ -95,10 +95,10 @@ const form = ref({
 });
 
 const handlerCheckInputFer = () => {
-  if (form.value.where == "far") {
+  if (form.value.where == "fer") {
     form.value.whereto = "yay";
   } else if (form.value.where == "yay") {
-    form.value.whereto = "far";
+    form.value.whereto = "fer";
   } else {
     form.value.whereto = "";
     form.value.where = "";
@@ -106,10 +106,10 @@ const handlerCheckInputFer = () => {
 };
 
 const handlerCheckInputTosh = () => {
-  if (form.value.whereto == "far") {
+  if (form.value.whereto == "fer") {
     form.value.where = "yay";
   } else if (form.value.whereto == "yay") {
-    form.value.where = "far";
+    form.value.where = "fer";
   } else {
     form.value.whereto = "";
     form.value.where = "";
